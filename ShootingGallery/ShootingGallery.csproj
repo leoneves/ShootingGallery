@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable" Version="3.7.0.1708" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+</Project>
