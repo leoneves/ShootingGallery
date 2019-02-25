@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootingGallery", "Shooting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootingGallery.MacOS.MacOS", "ShootingGallery.MacOS\ShootingGallery.MacOS.MacOS.csproj", "{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootingGallery.Linux.Desktop", "ShootingGallery.Linux\ShootingGallery.Linux.Desktop.csproj", "{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "ShootingGallery.Linux.Desktop", "ShootingGallery.Linux\ShootingGallery.Linux.Desktop.csproj", "{7A55F2DB-E785-41AA-A902-C00FBA496143}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,13 +41,13 @@ Global
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Debug|Any CPU.Build.0 = Debug|x86
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Release|Any CPU.ActiveCfg = Release|x86
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Release|Any CPU.Build.0 = Release|x86
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Debug|x86.ActiveCfg = Debug|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Debug|x86.Build.0 = Debug|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Release|x86.ActiveCfg = Release|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Release|x86.Build.0 = Release|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
-		{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}.Release|AnyCPU.Build.0 = Release|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Debug|x86.ActiveCfg = Debug|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Debug|x86.Build.0 = Debug|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Release|x86.ActiveCfg = Release|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Release|x86.Build.0 = Release|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{7A55F2DB-E785-41AA-A902-C00FBA496143}.Release|AnyCPU.Build.0 = Release|AnyCPU
 	EndGlobalSection
 EndGlobal

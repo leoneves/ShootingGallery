@@ -5,6 +5,10 @@
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Portable" Version=" 3.7.1.189">
       <NoWarn>NU1701</NoWarn>
