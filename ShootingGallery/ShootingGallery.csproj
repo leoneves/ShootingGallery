@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.Portable" Version=" 3.7.1.189" />
+    <PackageReference Include="MonoGame.Framework.Portable" Version=" 3.7.1.189">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
