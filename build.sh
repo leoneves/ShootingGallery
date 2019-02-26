@@ -1,0 +1,3 @@
+cd ShootingGallery
+nuget restore
+msbuild

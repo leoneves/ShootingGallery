@@ -1,6 +1,4 @@
 ﻿version: 1.0.{build}
-before_build:
-- sh: nuget restore
-- sh: cd ShootingGallery
-build:
-- sh: msbuild
+build_script:
+- sh: ./build.sh
+test: off
