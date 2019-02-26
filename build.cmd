@@ -2,5 +2,4 @@
 
 nuget restore
 cd ShootingGallery
-
-msbuild
+dotnet build
