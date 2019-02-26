@@ -1,4 +1,6 @@
-﻿version: 1.0.{build}
+﻿image:
+ - .NET Core 2.1.5 runtime
+version: 1.0.{build}
 build_script:
 - cmd: build.cmd
 test: off
