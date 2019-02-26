@@ -86,8 +86,8 @@ namespace GameLibrary
             if (game_running)
                 spriteBatch.Draw(target_sprite, CenterProsition(target_position.X, target_position.Y), Color.White);
 
-            spriteBatch.DrawString(game_font, $"Score: { score.ToString() }", new Vector2(3, 3), Color.White);
-            spriteBatch.DrawString(game_font, $"Time: { Math.Ceiling(timer).ToString() }", new Vector2(3, 40), Color.White);
+            spriteBatch.DrawString(game_font, $"Score: {score.ToString()}", new Vector2(3, 3), Color.White);
+            spriteBatch.DrawString(game_font, $"Time: {Math.Ceiling(timer).ToString()}", new Vector2(3, 40), Color.White);
 
             spriteBatch.Draw(crosshairs_sprite, new Vector2(mouse_state.X - 25, mouse_state.Y - 25), Color.White);
 
