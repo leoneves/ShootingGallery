@@ -11,7 +11,7 @@ namespace GameLibrary
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D target_sprite;
+        Texture2D targetSprite;
         Texture2D crosshairs_sprite;
         Texture2D background_sprite;
 
@@ -40,7 +40,7 @@ namespace GameLibrary
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            target_sprite = Content.Load<Texture2D>("target");
+            targetSprite = Content.Load<Texture2D>("target");
             crosshairs_sprite = Content.Load<Texture2D>("crosshairs");
             background_sprite = Content.Load<Texture2D>("sky");
 
@@ -84,7 +84,7 @@ namespace GameLibrary
 
             spriteBatch.Draw(background_sprite, new Vector2(0, 0), Color.White);
             if (game_running)
-                spriteBatch.Draw(target_sprite, CenterProsition(target_position.X, target_position.Y), Color.White);
+                spriteBatch.Draw(targetSprite, CenterProsition(target_position.X, target_position.Y), Color.White);
 
             spriteBatch.DrawString(game_font, $"Score: {score.ToString()}", new Vector2(3, 3), Color.White);
             spriteBatch.DrawString(game_font, $"Time: {Math.Ceiling(timer).ToString()}", new Vector2(3, 40), Color.White);
