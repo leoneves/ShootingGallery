@@ -1,29 +1,28 @@
-﻿using System;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
-namespace GameLibrary
+﻿namespace GameLibrary
 {
+    using System;
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Input;
+
     public class ShootingGallery : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private const int TargetRadius = 45;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
-        Texture2D target_sprite;
-        Texture2D crosshairs_sprite;
-        Texture2D background_sprite;
+        private Texture2D targetSprite;
+        private Texture2D crosshairsSprite;
+        private Texture2D backgroundSprite;
 
-        SpriteFont game_font;
-        Vector2 target_position = new Vector2(400, 250);
-        const int TARGET_RADIUS = 45;
-        MouseState mouse_state;
-        int score = 0;
-        bool mouse_released = true;
-        float mouse_target_dist;
-        float timer = 10f;
-        bool game_running = true;
+        private SpriteFont gameFont;
+        private Vector2 targetPosition = new Vector2(400, 250);
+        private MouseState mouseState;
+        private int score = 0;
+        private bool mouseReleased = true;
+        private float mouseTargetDist;
+        private float timer = 10f;
+        private bool gameRunning = true;
 
         public ShootingGallery()
         {
@@ -40,39 +39,45 @@ namespace GameLibrary
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            target_sprite = Content.Load<Texture2D>("target");
-            crosshairs_sprite = Content.Load<Texture2D>("crosshairs");
-            background_sprite = Content.Load<Texture2D>("sky");
+            targetSprite = Content.Load<Texture2D>("target");
+            crosshairsSprite = Content.Load<Texture2D>("crosshairs");
+            backgroundSprite = Content.Load<Texture2D>("sky");
 
-            game_font = Content.Load<SpriteFont>("galleryFont");
+            gameFont = Content.Load<SpriteFont>("galleryFont");
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-            if (timer > 0)
-                timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            else
-                game_running = false;
-
-            mouse_state = Mouse.GetState();
-
-            mouse_target_dist = Vector2.Distance(target_position, new Vector2(mouse_state.X, mouse_state.Y));
-
-            if (mouse_state.LeftButton == ButtonState.Pressed && mouse_released == true)
             {
-                if (mouse_target_dist < TARGET_RADIUS && game_running)
+                Exit();
+            }
+            if (timer > 0)
+            {
+                timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                gameRunning = false;
+            }
+
+            mouseState = Mouse.GetState();
+
+            mouseTargetDist = Vector2.Distance(targetPosition, new Vector2(mouseState.X, mouseState.Y));
+
+            if (mouseState.LeftButton == ButtonState.Pressed && mouseReleased == true)
+            {
+                if (mouseTargetDist < TargetRadius && gameRunning)
                 {
                     score++;
                     Random random = new Random();
-                    target_position.X = random.Next(TARGET_RADIUS, graphics.PreferredBackBufferWidth - TARGET_RADIUS + 1);
-                    target_position.Y = random.Next(TARGET_RADIUS, graphics.PreferredBackBufferHeight - TARGET_RADIUS + 1);
+                    targetPosition.X = random.Next(TargetRadius, graphics.PreferredBackBufferWidth - TargetRadius + 1);
+                    targetPosition.Y = random.Next(TargetRadius, graphics.PreferredBackBufferHeight - TargetRadius + 1);
                 }
-                mouse_released = false;
+                mouseReleased = false;
             }
 
-            mouse_released |= mouse_state.LeftButton == ButtonState.Released;
+            mouseReleased |= mouseState.LeftButton == ButtonState.Released;
 
             base.Update(gameTime);
         }
@@ -82,22 +87,23 @@ namespace GameLibrary
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            spriteBatch.Draw(background_sprite, new Vector2(0, 0), Color.White);
-            if (game_running)
-                spriteBatch.Draw(target_sprite, CenterProsition(target_position.X, target_position.Y), Color.White);
+            spriteBatch.Draw(backgroundSprite, new Vector2(0, 0), Color.White);
+            if (gameRunning)
+            {
+                spriteBatch.Draw(targetSprite, CenterProsition(targetPosition.X, targetPosition.Y), Color.White);
+            }
+            spriteBatch.DrawString(gameFont, $"Score: {score.ToString()}", new Vector2(3, 3), Color.White);
+            spriteBatch.DrawString(gameFont, $"Time: {Math.Ceiling(timer).ToString()}", new Vector2(3, 40), Color.White);
 
-            spriteBatch.DrawString(game_font, $"Score: { score.ToString() }", new Vector2(3, 3), Color.White);
-            spriteBatch.DrawString(game_font, $"Time: { Math.Ceiling(timer).ToString() }", new Vector2(3, 40), Color.White);
-
-            spriteBatch.Draw(crosshairs_sprite, new Vector2(mouse_state.X - 25, mouse_state.Y - 25), Color.White);
+            spriteBatch.Draw(crosshairsSprite, new Vector2(mouseState.X - 25, mouseState.Y - 25), Color.White);
 
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
-        Vector2 CenterProsition(float x_position, float y_position)
+        private Vector2 CenterProsition(float x_position, float y_position)
         {
-            return new Vector2(x_position - TARGET_RADIUS, y_position - TARGET_RADIUS);
+            return new Vector2(x_position - TargetRadius, y_position - TargetRadius);
         }
     }
 }
