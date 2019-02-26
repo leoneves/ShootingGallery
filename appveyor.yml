@@ -1,4 +1,4 @@
-﻿image: .NET Core 2.1.5 runtime
+﻿image: Visual Studio 2017
 version: 1.0.{build}
 build_script:
 - cmd: build.cmd
